@@ -1,7 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page isELIgnored="false" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ page isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <html>
 
 <head>
@@ -13,7 +15,7 @@
 <title>Desarrollo Comercial</title>
 
 <!-- Bootstrap -->
-<link href="static/css/bootstrap.min.css" rel="stylesheet">
+<link href="static/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 
 <!-- Font awesome -->
 <link href="static/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -43,26 +45,27 @@
 					<c:url var="loginUrl" value="/login" />
 					<form class="m-t" role="form" action="${loginUrl}" method="post">
 						<c:if test="${param.error != null}">
-							<div class = "alert-danger">
-								<p class ="text-center">¡Algo salió mal!</p>
+							<div class="alert-danger">
+								<p class="text-center">¡Algo salió mal!</p>
 							</div>
 						</c:if>
 						<c:if test="${param.logout != null}">
-							<div class = "alert-success">
-								<p class ="text-center">¡Nos vemos!</p>
+							<div class="alert-success">
+								<p class="text-center">¡Nos vemos!</p>
 							</div>
 						</c:if>
 						<div class="form-group">
-							<label for="username"><i></i></label>
-							<input type="text" class="form-control" id="username"
-								name="username" placeholder="Usuario" required>
+							<label for="username"><i></i></label> <input type="text"
+								class="form-control" id="username" name="username"
+								placeholder="Usuario" required>
 						</div>
 						<div class="form-group">
-							<label for="password"><i></i></label>
-							<input type="password" class="form-control" id="password"
-								name="password" placeholder="Contraseña" required>
+							<label for="password"><i></i></label> <input type="password"
+								class="form-control" id="password" name="password"
+								placeholder="Contraseña" required>
 						</div>
-						<input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
+						<input type="hidden" name="${_csrf.parameterName}"
+							value="${_csrf.token}" />
 						<button type="submit" class="btn btn-primary block full-width m-b">Inicio</button>
 						<p>
 							<a href="#"> <small>¿No recuerdas la contraseña?</small>

@@ -15,11 +15,9 @@
 			-->
 		</div>
 		<ul class="nav navbar-top-links navbar-right">
-            <li>
-                <a href="<c:url value="/logout" />">
-                    <i class="fa fa-sign-out"></i> Salir
-                </a>
-            </li>
-        </ul>
+			<li><a href="<c:url value="/logout" />"> <i
+					class="fa fa-sign-out"></i> Salir
+			</a></li>
+		</ul>
 	</nav>
 </div>

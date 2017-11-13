@@ -14,6 +14,7 @@
 		<springframework.version>4.2.5.RELEASE</springframework.version>
 		<springsecurity.version>4.0.4.RELEASE</springsecurity.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- <mysql.connector.version>5.1.6</mysql.connector.version> -->
 		<mssql.connector.version>6.2.1.jre8</mssql.connector.version>
 	</properties>
 
@@ -58,6 +59,13 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>5.1.3.Final</version>
 		</dependency>
+
+		<!-- MySQL-->
+		<!-- <dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.connector.version}</version>
+		</dependency> -->
 
 		<!-- SQL Server-->
 		<dependency>

@@ -14,14 +14,69 @@ function MainCtrl() {
 
 };
 
-function datatablesCtrl($scope, $compile, DTOptionsBuilder, DTColumnBuilder) {
+function datatablesCtrl($scope, $http, $compile, DTOptionsBuilder, DTColumnBuilder) {
     var vm = this;
+    
+    $scope.SelectedFileForUpload = null;
     vm.message = '';
     vm.editUser = editUser;
     vm.activateUser = activateUser;
     vm.dtInstance = {};
     vm.persons = {};
     vm.activate = '';
+    
+    $scope.UploadFile = function(files){
+    	$scope.$apply(function(){
+    		$scope.SelectedFileForUpload = files[0];
+    		})
+    	}
+    
+    //Parse Excel Data
+    $scope.ParseExcelDataAndSave = function(){
+    	var file = $scope.SelectedFileForUpload;
+    	if(file){
+    		var reader = new FileReader();
+    		reader.onload = function(e){
+    			var data = e.target.result;
+    			//XLSX de la librería js-xlsx, cuando lo agrego a la vista
+    			var workbook = XLSX.read(data,{type: 'binary'});
+    			var sheetName = workbook.SheetNames[0];
+    			var excelData =XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+    			if (excelData.length > 0){
+    				//Salvar data
+    				$scope.SaveData(excelData);
+    			}
+    			else{
+    				vm.message = "No data found";
+    			}
+    		}
+    		reader.onerror  = function(ex){
+    			console.log(ex);
+    		}
+    		reader.readAsBinaryString(file);
+    	}
+    }
+    
+    //Salvar la data excel en nuestra base de datos
+    $scope.SaveData = function(excelData){
+    	$http({
+    		method: 'POST',
+    		url: '/onlinedc/json/data/SaveData',
+    		data: JSON.stringify(excelData),
+    		headers:{
+    			'Content-Type':'application/json'
+    		}
+    	}).then(function(data){
+    		if (data.status){
+    			vm.message = excelData.length + "filas insertadas";
+    		}
+    		else{
+    			vm.message = "Failed";
+    		}
+    	}, function(error){
+    		vm.message = "Error";
+    	})
+    }
     
     vm.dtOptions = DTOptionsBuilder.fromSource('/onlinedc/json/data/entities/')
 	    .withPaginationType('full_numbers')

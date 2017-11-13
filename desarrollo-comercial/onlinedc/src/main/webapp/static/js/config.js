@@ -39,6 +39,11 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
                         },
                         {
                             serie: true,
+                            files: ['static/js/plugins/jasny/jasny-bootstrap.min.js',
+                            	'static/css/plugins/jasny/jasny-bootstrap.min.css']
+                        },                        
+                        {
+                            serie: true,
                             name: 'datatables',
                             files: ['static/js/plugins/dataTables/angular-datatables.min.js']
                         },

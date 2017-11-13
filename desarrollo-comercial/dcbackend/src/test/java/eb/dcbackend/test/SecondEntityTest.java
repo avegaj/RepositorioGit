@@ -1,22 +1,22 @@
-package eb.dcbackend.test;
+/*package eb.dcbackend.test;*/
 
-import static org.junit.Assert.assertEquals;
+/*import static org.junit.Assert.assertEquals;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import eb.dcbackend.dao.SecondEntityDAO;
-import eb.dcbackend.model.SecondEntity;
+import eb.dcbackend.model.SecondEntity;*/
 
-public class SecondEntityTest {
+/*public class SecondEntityTest {*/
 
 	
-	private static AnnotationConfigApplicationContext context;
+	/*private static AnnotationConfigApplicationContext context;*/
 	
-	private static SecondEntityDAO secondEntityDAO;
+	/*private static SecondEntityDAO secondEntityDAO;*/
 	
-	@SuppressWarnings("unused")
+	/*@SuppressWarnings("unused")
 	private SecondEntity secondEntity;
 	
 	@BeforeClass
@@ -26,7 +26,7 @@ public class SecondEntityTest {
 		context.refresh();
 		
 		secondEntityDAO = (SecondEntityDAO)context.getBean("secondEntityDAO");
-	}
+	}*/
 	/*@Test
 	public void testAddSecondEntity() {
 		secondEntity = new SecondEntity();
@@ -67,10 +67,10 @@ public class SecondEntityTest {
 		assertEquals("Successfully delete",true,secondEntityDAO.delete(secondEntity));
 	}*/
 	
-	@Test
+	/*@Test
 	public void testListSecondrEntity() {
 					
 		assertEquals("Successfully list!",5,secondEntityDAO.list().size());
 		
-	}
-}
+	}*/
+/*}*/
